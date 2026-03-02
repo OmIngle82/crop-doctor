@@ -190,7 +190,7 @@ function ExpertCard({
     onCall: (n: string) => void;
 }) {
     return (
-        <div className="bg-gradient-to-br from-white via-emerald-50/30 to-white border-[2px] border-white rounded-3xl p-5 hover:shadow-[0_15px_30px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 group flex flex-col gap-4 relative overflow-hidden">
+        <div className="bg-gradient-to-br from-white via-emerald-50/30 to-white border-[2px] border-white rounded-3xl p-5 hover:shadow-[0_15px_30px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 group flex flex-col gap-4 relative overflow-hidden transform-gpu will-change-transform">
             {/* Top: avatar + info */}
             <div className="flex gap-4 items-start relative z-10">
                 <div className="relative flex-shrink-0">

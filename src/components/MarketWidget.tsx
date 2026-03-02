@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { TrendingUp, TrendingDown, Minus, RefreshCw, AlertCircle, Sparkles, ChevronRight, BarChart2, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 import clsx from 'clsx';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from '../store/useStore';
 import type { MarketRate } from '../services/MarketService';
 
@@ -98,10 +99,11 @@ function FeaturedCard({ rate, isSelected, onToggle }: { rate: MarketRate; isSele
     const isDown = rate.trend === 'down';
 
     return (
-        <div
+        <motion.div
+            layout
             onClick={onToggle}
             className={clsx(
-                "relative rounded-3xl p-5 overflow-hidden border transition-all duration-500 cursor-pointer group",
+                "relative rounded-3xl p-5 overflow-hidden border cursor-pointer group transform-gpu will-change-transform",
                 isSelected
                     ? "bg-emerald-500/20 border-emerald-500/30 shadow-[0_8px_30px_rgba(16,185,129,0.1)]"
                     : "bg-white/5 hover:bg-white/10 border-white/5 hover:border-white/10"
@@ -113,7 +115,7 @@ function FeaturedCard({ rate, isSelected, onToggle }: { rate: MarketRate; isSele
                 isSelected ? "bg-emerald-500/30 opacity-100" : "bg-emerald-500/20 opacity-0 group-hover:opacity-40"
             )} />
 
-            <div className="relative flex items-start justify-between gap-4">
+            <motion.div layout className="relative flex items-start justify-between gap-4">
                 {/* Left side */}
                 <div className="space-y-1.5 min-w-0">
                     <div className="flex items-center gap-2">
@@ -158,18 +160,23 @@ function FeaturedCard({ rate, isSelected, onToggle }: { rate: MarketRate; isSele
                         {isSelected ? 'Closing Detail' : 'View 30D Trend'}
                     </button>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Price Trend Chart - Animated Expansion */}
-            <div className={clsx(
-                "overflow-hidden transition-all duration-500 ease-in-out",
-                isSelected ? "max-h-48 opacity-100 mt-4" : "max-h-0 opacity-0"
-            )}>
-                {rate.history && rate.history.length > 0 && (
-                    <TrendChart data={rate.history} trend={rate.trend} />
+            <AnimatePresence initial={false}>
+                {isSelected && rate.history && rate.history.length > 0 && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden transform-gpu will-change-transform"
+                    >
+                        <TrendChart data={rate.history} trend={rate.trend} />
+                    </motion.div>
                 )}
-            </div>
-        </div>
+            </AnimatePresence>
+        </motion.div>
     );
 }
 

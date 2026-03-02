@@ -146,7 +146,7 @@ export default function Login() {
                         y: [0, 30, 0],
                     }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-200/40 rounded-full blur-[120px]"
+                    className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-200/40 rounded-full blur-[120px] transform-gpu will-change-transform"
                 />
                 <motion.div
                     animate={{
@@ -155,7 +155,7 @@ export default function Login() {
                         y: [0, -20, 0],
                     }}
                     transition={{ duration: 15, repeat: Infinity, ease: "linear", delay: 2 }}
-                    className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-green-200/30 rounded-full blur-[100px]"
+                    className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-green-200/30 rounded-full blur-[100px] transform-gpu will-change-transform"
                 />
                 <motion.div
                     animate={{
@@ -163,7 +163,7 @@ export default function Login() {
                         opacity: [0.1, 0.2, 0.1],
                     }}
                     transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-[20%] left-[15%] w-[400px] h-[400px] bg-yellow-100/20 rounded-full blur-[80px]"
+                    className="absolute top-[20%] left-[15%] w-[400px] h-[400px] bg-yellow-100/20 rounded-full blur-[80px] transform-gpu will-change-transform opacity-[0.1]"
                 />
             </div>
 

@@ -500,7 +500,7 @@ function ResultsView({ report, onRescan }: { report: SoilReport; onRescan: () =>
                             </div>
                             <div className="space-y-3">
                                 {report.fertilizerPlan.map((step, i) => (
-                                    <div key={i} className="group bg-white border border-gray-100 rounded-2xl p-4 flex items-start gap-4 shadow-sm hover:shadow-lg hover:border-emerald-100 transition-all duration-200">
+                                    <div key={i} className="group bg-white border border-gray-100 rounded-2xl p-4 flex items-start gap-4 shadow-sm hover:shadow-lg hover:border-emerald-100 transition-all duration-200 transform-gpu will-change-transform">
                                         <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-md shadow-green-300/30 group-hover:scale-105 transition-transform">
                                             <span className="text-white font-black text-sm">{i + 1}</span>
                                         </div>
@@ -655,7 +655,7 @@ function HistoryView({
                         <div
                             key={h.id}
                             onClick={() => onSelect(h)}
-                            className="bg-gradient-to-br from-white via-emerald-50/30 to-white border-[2px] border-white rounded-3xl p-5 hover:shadow-[0_15px_30px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 cursor-pointer group relative overflow-hidden"
+                            className="bg-gradient-to-br from-white via-emerald-50/30 to-white border-[2px] border-white rounded-3xl p-5 hover:shadow-[0_15px_30px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 cursor-pointer group relative overflow-hidden transform-gpu will-change-transform"
                         >
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-emerald-500 rounded-l-2xl" />
                             <div className="flex justify-between items-start mb-3">
@@ -756,7 +756,7 @@ function UploadView({ onFile, dragOver, setDragOver, fileInputRef, handleFileCha
                     { icon: '🌾', title: 'Crop-wise Plan', desc: 'Per-crop fertilizer prescription', bg: 'bg-gradient-to-br from-amber-50 to-yellow-50/50', border: 'border-amber-100/60' },
                     { icon: '🤖', title: 'Gemini AI Vision', desc: 'Works on handwritten cards', bg: 'bg-gradient-to-br from-blue-50 to-sky-50/50', border: 'border-blue-100/60' },
                 ].map(f => (
-                    <div key={f.title} className={clsx("rounded-3xl p-4 border-[2px] border-white shadow-[0_8px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 backdrop-blur-md cursor-default", f.bg)}>
+                    <div key={f.title} className={clsx("rounded-3xl p-4 border-[2px] border-white shadow-[0_8px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 backdrop-blur-md cursor-default transform-gpu will-change-transform", f.bg)}>
                         <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center text-xl shadow-sm mb-3 border border-white/50">{f.icon}</div>
                         <p className="font-black text-gray-800 text-[13px] leading-tight">{f.title}</p>
                         <p className="text-[11px] text-gray-400 font-bold mt-1 leading-snug">{f.desc}</p>

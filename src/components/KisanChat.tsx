@@ -390,7 +390,7 @@ export default function KisanChat({ onClose, context, lang = 'en' }: KisanChatPr
 
                 {/* ── Input Area ───────────────────────────────────────────── */}
                 <div
-                    className="bg-white border-t border-emerald-100 shadow-[0_-15px_40px_rgba(16,185,129,0.05)] px-4 py-4 flex-shrink-0 z-20 transition-all duration-150"
+                    className="bg-white border-t border-emerald-100 shadow-[0_-15px_40px_rgba(16,185,129,0.05)] px-4 py-4 flex-shrink-0 z-20 transform-gpu will-change-[padding-bottom]"
                     style={{
                         paddingBottom: keyboardHeight > 0
                             ? `calc(${keyboardHeight}px + 1rem)`

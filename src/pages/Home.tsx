@@ -504,23 +504,23 @@ export default function Home() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.3 }}
-                                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                className="absolute inset-0 bg-black/60 backdrop-blur-sm transform-gpu will-change-transform"
                                 onClick={() => setSelectedNews(null)}
                             />
 
                             {/* Animated Modal Container */}
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                                initial={{ opacity: 0, scale: 0.95, y: 30 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                                 transition={{
                                     type: "spring",
                                     damping: 25,
-                                    stiffness: 300,
-                                    duration: 0.4
+                                    stiffness: 220,
+                                    mass: 0.8
                                 }}
-                                className="bg-white rounded-[2.5rem] max-w-lg w-full max-h-[calc(100vh-140px)] md:max-h-[90vh] flex flex-col overflow-hidden shadow-2xl relative z-20 border border-white/20"
+                                className="bg-white rounded-[2.5rem] max-w-lg w-full max-h-[calc(100vh-140px)] md:max-h-[90vh] flex flex-col overflow-hidden shadow-2xl relative z-20 border border-white/20 transform-gpu will-change-transform"
                                 onClick={(e: React.MouseEvent) => e.stopPropagation()}
                             >
                                 <button
@@ -654,7 +654,7 @@ function PredictiveAlert({ weather, forecast }: { weather: any, forecast: any[] 
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="relative overflow-hidden rounded-[2rem] p-5 mb-8 border-[2px] border-white/40 shadow-[0_15px_35px_rgba(0,0,0,0.1)] group transition-all duration-300 hover:shadow-[0_20px_45px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
+            className="relative overflow-hidden rounded-[2rem] p-5 mb-8 border-[2px] border-white/40 shadow-[0_15px_35px_rgba(0,0,0,0.1)] group transition-all duration-300 hover:shadow-[0_20px_45px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 transform-gpu will-change-transform"
         >
             {/* 3D Glassmorphic Background */}
             <div className={`absolute inset-0 bg-gradient-to-br ${alert.gradient} opacity-90 backdrop-blur-2xl`} />
@@ -690,7 +690,7 @@ function StoryCard({ title, image, tag, color, onClick }: { title: string; image
     return (
         <div
             onClick={onClick}
-            className="group relative bg-white/80 backdrop-blur-2xl rounded-[1.5rem] p-3 shadow-[0_8px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(99,102,241,0.12)] border border-white/60 flex flex-col gap-3 hover:-translate-y-1 transition-all duration-300 h-full cursor-pointer overflow-hidden"
+            className="group relative bg-white/80 backdrop-blur-2xl rounded-[1.5rem] p-3 shadow-[0_8px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(99,102,241,0.12)] border border-white/60 flex flex-col gap-3 hover:-translate-y-1 transition-all duration-300 h-full cursor-pointer overflow-hidden transform-gpu will-change-transform"
         >
             {/* Inner Glow */}
             <div className={`absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity duration-500 ${color.replace('bg-', 'bg-')}`} />
@@ -737,7 +737,7 @@ function CropInsightCard({ name, status, health, lastChecked }: { name: string, 
     const textColor = isGood ? 'text-emerald-700' : isWarning ? 'text-amber-700' : 'text-red-700';
 
     return (
-        <div className="bg-white/60 backdrop-blur-md rounded-2xl p-4 flex items-center justify-between border border-white shadow-sm transition-all hover:scale-[1.02] hover:bg-white/80 hover:shadow-md cursor-pointer group">
+        <div className="bg-white/60 backdrop-blur-md rounded-2xl p-4 flex items-center justify-between border border-white shadow-sm transition-all hover:scale-[1.02] hover:bg-white/80 hover:shadow-md cursor-pointer group transform-gpu will-change-transform">
             <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center flex-shrink-0 group-hover:shadow transition-shadow">
                     <Sprout className={textColor} size={20} />

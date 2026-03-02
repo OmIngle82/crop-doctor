@@ -172,7 +172,7 @@ export default function ExpertConsultation() {
                             return (
                                 <div
                                     key={consultation.id}
-                                    className="bg-gradient-to-br from-white via-emerald-50/20 to-white rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_30px_rgba(16,185,129,0.15)] hover:-translate-y-1 border-[2px] border-white transition-all duration-300 overflow-hidden relative"
+                                    className="bg-gradient-to-br from-white via-emerald-50/20 to-white rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_30px_rgba(16,185,129,0.15)] hover:-translate-y-1 border-[2px] border-white transition-all duration-300 overflow-hidden relative transform-gpu will-change-transform"
                                 >
                                     <div className="p-5">
                                         {/* Header row */}

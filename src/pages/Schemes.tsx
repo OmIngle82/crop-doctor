@@ -259,7 +259,7 @@ function SchemeCard({ scheme }: { scheme: any }) {
 
     return (
         <div className={clsx(
-            "relative bg-white rounded-[3rem] border transition-all duration-500 overflow-hidden group",
+            "relative bg-white rounded-[3rem] border transition-all duration-500 overflow-hidden group transform-gpu will-change-transform",
             scheme.isEligible
                 ? "border-emerald-100 shadow-[0_20px_40px_rgba(16,185,129,0.05)] hover:shadow-emerald-900/10 ring-1 ring-emerald-500/5"
                 : "border-slate-100 shadow-[0_15px_35px_rgba(0,0,0,0.02)] hover:shadow-slate-200"
@@ -271,7 +271,7 @@ function SchemeCard({ scheme }: { scheme: any }) {
                 <div className="flex flex-col md:flex-row gap-8 items-start">
                     {/* Icon Container with 3D depth */}
                     <div className={clsx(
-                        "w-16 h-16 rounded-[1.5rem] flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-xl",
+                        "w-16 h-16 rounded-[1.5rem] flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-xl transform-gpu will-change-transform",
                         scheme.isEligible
                             ? "bg-gradient-to-br from-emerald-400 to-emerald-600 text-white shadow-emerald-500/30 shadow-[inset_0_2px_4px_rgba(255,255,255,0.4)]"
                             : "bg-slate-100 text-slate-400 shadow-slate-200/50"

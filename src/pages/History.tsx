@@ -216,7 +216,7 @@ export default function History() {
                                         stiffness: 150,
                                         mass: 0.8
                                     }}
-                                    className="bg-gradient-to-br from-white via-emerald-50/20 to-white rounded-3xl p-4 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border-[2px] border-white flex gap-4 items-center group hover:shadow-[0_15px_30px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 cursor-pointer relative overflow-hidden"
+                                    className="bg-gradient-to-br from-white via-emerald-50/20 to-white rounded-3xl p-4 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border-[2px] border-white flex gap-4 items-center group hover:shadow-[0_15px_30px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 cursor-pointer relative overflow-hidden transform-gpu will-change-transform"
                                 >
                                     {/* Image thumbnail */}
                                     <div className="w-[72px] h-[72px] bg-gray-100 rounded-2xl flex-shrink-0 overflow-hidden border border-gray-200 ml-1 shadow-inner relative z-10">
