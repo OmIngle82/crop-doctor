@@ -30,9 +30,6 @@ async function fetchNewsFromGoogle(query: string, language: 'en' | 'mr' | 'hi'):
             ? `https://news.google.com/rss/search?q=${query}&hl=hi-IN&gl=IN&ceid=IN:hi`
             : `https://news.google.com/rss/search?q=${query}&hl=en-IN&gl=IN&ceid=IN:en`;
 
-    // Use corsproxy.io to bypass CORS (More reliable than AllOrigins)
-    const proxyUrl = `https://corsproxy.io/?` + encodeURIComponent(rssUrl);
-
     // Keywords for strict relevance filtering (Client-side)
     const keywords = {
         mr: ['कृषी', 'शेतकरी', 'पीक', 'कापूस', 'सोयाबीन', 'बाजार', 'हवामान', 'अनुदान', 'योजना', 'पेरणी', 'पाऊस'],
