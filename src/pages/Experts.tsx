@@ -267,7 +267,11 @@ export default function Experts() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        getExperts().then(data => { setExperts(data); setLoading(false); });
+        getExperts().then(data => {
+            console.log("Loaded experts:", data.length, data);
+            setExperts(data);
+            setLoading(false);
+        });
     }, []);
 
     const handleWhatsApp = (number: string) => {
@@ -330,14 +334,15 @@ export default function Experts() {
                         <p className="text-gray-400 font-bold text-sm">Loading experts…</p>
                     </div>
                 ) : (
-                    <motion.div
-                        variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06 } } }}
+                    <div
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
                     >
-                        {experts.map(expert => (
+                        {experts.map((expert, index) => (
                             <motion.div
                                 key={expert.id}
-                                variants={{ hidden: { opacity: 0, y: 20, scale: 0.97 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } } }}
+                                initial={{ opacity: 0, y: 20, scale: 0.97 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                transition={{ duration: 0.4, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
                             >
                                 <ExpertCard
                                     expert={expert}
@@ -347,7 +352,7 @@ export default function Experts() {
                                 />
                             </motion.div>
                         ))}
-                    </motion.div>
+                    </div>
                 )}
             </motion.div>
 

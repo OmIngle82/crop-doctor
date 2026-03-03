@@ -51,7 +51,6 @@ export default function CameraInput({ onImageSelect, isScanning = false, scannin
             <input
                 type="file"
                 accept="image/*"
-                capture="environment"
                 className="hidden"
                 ref={fileInputRef}
                 onChange={handleFileChange}

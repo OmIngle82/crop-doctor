@@ -138,8 +138,8 @@ export default function Login() {
 
     return (
         <div className="min-h-screen bg-[#F0FDF4] flex items-center justify-center p-4 relative overflow-hidden">
-            {/* Premium Mesh Background */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Premium Mesh Background - Desktop Only to prevent mobile lag */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
                 <motion.div
                     animate={{
                         scale: [1, 1.2, 1],
@@ -174,7 +174,7 @@ export default function Login() {
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="max-w-4xl w-full grid md:grid-cols-2 bg-white/40 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] overflow-hidden border border-white/40 relative z-10 min-h-[500px] md:min-h-[600px]"
+                className="max-w-4xl w-full grid md:grid-cols-2 bg-white/60 md:bg-white/40 backdrop-blur-lg md:backdrop-blur-2xl rounded-[2.5rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] overflow-hidden border border-white/40 relative z-10 min-h-[500px] md:min-h-[600px]"
             >
                 {/* Left Side: Brand & Visuals */}
                 <div className="bg-gradient-to-br from-emerald-600 via-emerald-700 to-primary-800 p-8 md:p-12 text-white flex flex-col justify-between relative overflow-hidden group min-h-[220px] md:min-h-full">

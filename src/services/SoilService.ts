@@ -120,8 +120,11 @@ async function runAnalysis(
     base64Data: string,
     mimeType: string
 ): Promise<SoilReport> {
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: modelName });
+    let genAIInstance = new GoogleGenerativeAI(apiKey);
+    const model = genAIInstance.getGenerativeModel(
+        { model: modelName },
+        { apiVersion: modelName.includes('2.0') ? 'v1alpha' : 'v1beta' }
+    );
 
     const result = await model.generateContent([
         {
@@ -194,7 +197,12 @@ export async function analyzeSoilCard(file: File): Promise<SoilReport> {
         reader.readAsDataURL(file);
     });
 
-    const models = ['gemini-2.5-flash', 'gemini-2.0-flash'];
+    const models = [
+        'gemini-2.5-flash',
+        'gemini-2.0-flash',
+        'gemini-2.0-flash-001',
+        'gemini-2.5-pro'
+    ];
     let lastError: unknown;
 
     for (const modelName of models) {

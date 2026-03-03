@@ -434,7 +434,7 @@ function ResultsView({ report, onRescan }: { report: SoilReport; onRescan: () =>
             {/* Hidden Formal Report for PDF Export */}
             <FormalReportTemplate report={report} acreage={acreage} printRef={printRef} />
 
-            <div ref={reportRef} className="relative p-1 lg:grid lg:grid-cols-5 lg:gap-6 lg:items-start space-y-5 lg:space-y-0 rounded-[2.5rem] bg-gradient-to-br from-emerald-50 via-teal-50/50 to-white border-[2px] border-white shadow-[0_20px_50px_rgba(16,185,129,0.15)] overflow-hidden">
+            <div ref={reportRef} className="relative p-1 lg:grid lg:grid-cols-5 lg:gap-6 lg:items-start space-y-4 sm:space-y-5 lg:space-y-0 rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-br from-emerald-50 via-teal-50/50 to-white border-[2px] border-white shadow-[0_20px_50px_rgba(16,185,129,0.15)] overflow-hidden">
                 {/* 3D Lighting Accents */}
                 <div className="absolute top-[-20%] left-[-10%] w-64 h-64 bg-emerald-200/50 rounded-full blur-[40px] pointer-events-none" />
                 <div className="absolute bottom-[-10%] right-[-10%] w-48 h-48 bg-teal-200/40 rounded-full blur-[30px] pointer-events-none" />
@@ -445,7 +445,7 @@ function ResultsView({ report, onRescan }: { report: SoilReport; onRescan: () =>
                     <div className="relative rounded-[2rem] overflow-hidden bg-[#0a1a0e]">
                         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(34,197,94,0.18),transparent_55%)] pointer-events-none" />
                         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(16,185,129,0.10),transparent_50%)] pointer-events-none" />
-                        <div className="relative p-6">
+                        <div className="relative p-5 sm:p-6">
                             <div className="flex items-center gap-2 mb-3">
                                 <span className="relative flex h-2.5 w-2.5">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
@@ -453,7 +453,7 @@ function ResultsView({ report, onRescan }: { report: SoilReport; onRescan: () =>
                                 </span>
                                 <span className="text-[10px] font-black text-emerald-400 uppercase tracking-[0.18em]">Analysis Complete</span>
                             </div>
-                            <h2 className="text-white font-black text-[26px] leading-none mb-1">Soil Health Report</h2>
+                            <h2 className="text-white font-black text-2xl sm:text-[26px] leading-none mb-1">Soil Health Report</h2>
                             {report.farmerName && (
                                 <p className="text-white/80 text-[14px] font-semibold mt-2">👤 {report.farmerName}</p>
                             )}
@@ -553,9 +553,9 @@ function ResultsView({ report, onRescan }: { report: SoilReport; onRescan: () =>
                             <div className="w-7 h-7 rounded-xl bg-green-100 flex items-center justify-center">
                                 <Droplets size={14} className="text-green-600" />
                             </div>
-                            <h3 className="font-display font-black text-gray-800 text-[17px]">Primary & Macro Nutrients</h3>
+                            <h3 className="font-display font-black text-gray-800 text-base sm:text-[17px] max-w-[200px] sm:max-w-none leading-tight">Primary & Macro Nutrients</h3>
                         </div>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <div className="grid grid-cols-2 gap-2 sm:gap-3">
                             {primary.map(cfg => <NutrientCard key={cfg.key} cfg={cfg} report={report} />)}
                         </div>
                     </section>
@@ -564,9 +564,9 @@ function ResultsView({ report, onRescan }: { report: SoilReport; onRescan: () =>
                     <section>
                         <div className="flex items-center gap-2.5 mb-3">
                             <div className="w-7 h-7 rounded-xl bg-blue-100 flex items-center justify-center text-sm">🔬</div>
-                            <h3 className="font-display font-black text-gray-800 text-[17px]">Micro Nutrients</h3>
+                            <h3 className="font-display font-black text-gray-800 text-base sm:text-[17px]">Micro Nutrients</h3>
                         </div>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <div className="grid grid-cols-2 gap-2 sm:gap-3">
                             {visibleMicro.map(cfg => <NutrientCard key={cfg.key} cfg={cfg} report={report} />)}
                         </div>
                         {micro.some(n => report[n.key]?.status === 'unknown') && (
@@ -658,7 +658,7 @@ function HistoryView({
                         <div
                             key={h.id}
                             onClick={() => onSelect(h)}
-                            className="bg-gradient-to-br from-white via-emerald-50/30 to-white border-[2px] border-white rounded-3xl p-5 hover:shadow-[0_15px_30px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 cursor-pointer group relative overflow-hidden transform-gpu will-change-transform"
+                            className="bg-gradient-to-br from-white via-emerald-50/30 to-white border-[2px] border-white rounded-[1.5rem] sm:rounded-3xl p-4 sm:p-5 hover:shadow-[0_15px_30px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 cursor-pointer group relative overflow-hidden transform-gpu will-change-transform"
                         >
                             <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-emerald-500 rounded-l-2xl" />
                             <div className="flex justify-between items-start mb-3">
@@ -709,7 +709,7 @@ function UploadView({ onFile, dragOver, setDragOver, fileInputRef, handleFileCha
                 <div className="absolute top-[-20%] left-[-10%] w-64 h-64 bg-emerald-500/20 rounded-full blur-[60px] pointer-events-none group-hover:bg-emerald-500/30 transition-colors duration-500" />
                 <div className="absolute bottom-[-10%] right-[-10%] w-48 h-48 bg-teal-500/20 rounded-full blur-[50px] pointer-events-none" />
                 {dragOver && <div className="absolute inset-0 border-2 border-green-400/60 rounded-[2.5rem] animate-pulse" />}
-                <div className="relative z-10 flex flex-col items-center justify-center text-center py-14 px-8 gap-5">
+                <div className="relative z-10 flex flex-col items-center justify-center text-center py-10 px-6 sm:py-14 sm:px-8 gap-5">
                     <div className="relative">
                         <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-2xl shadow-green-500/40">
                             <FlaskConical size={40} className="text-white" />
@@ -752,7 +752,7 @@ function UploadView({ onFile, dragOver, setDragOver, fileInputRef, handleFileCha
                 </div>
             </details>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {[
                     { icon: '🔬', title: 'Reads 12 Nutrients', desc: 'NPK, pH, OC, Zinc & more', bg: 'bg-gradient-to-br from-green-50 to-emerald-50/50', border: 'border-green-100/60' },
                     { icon: '📄', title: 'PDF + Photo', desc: 'Any format from your phone', bg: 'bg-gradient-to-br from-red-50 to-rose-50/50', border: 'border-red-100/60' },
@@ -832,7 +832,7 @@ export default function SoilAnalyzer() {
                 )}
             />
 
-            <div className="p-6 md:p-10 max-w-6xl mx-auto">
+            <div className="p-4 sm:p-6 md:p-10 max-w-6xl mx-auto">
                 {pageState === 'upload' && (
                     <UploadView
                         onFile={processFile}
